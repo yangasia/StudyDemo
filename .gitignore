@@ -1,1 +1,3 @@
 /webpack/webpack-demo/node_modules/*
+#/webpack/webpack-demo/dist/bundle.js
+#/webpack/webpack-demo/dist/main.js
