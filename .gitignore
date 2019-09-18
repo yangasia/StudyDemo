@@ -1,2 +1,3 @@
 /webpack/webpack-demo/node_modules/*
-/webpack/webpack-demo/dist/!index.html
+!/webpack/webpack-demo/dist/index.html
+/webpack/webpack-demo/dist/*
