@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'myfont';
+    src:url('./myfont.otf');
+    font-style: normal;
+    font-weight: 600;
+}
 .hello {
+    font-family: 'myfont';
     color: #fff;
     background-image: url('./y128.png');
     background-repeat:no-repeat;
+    font-size: 50px;
+    background-color: #333;
 }
