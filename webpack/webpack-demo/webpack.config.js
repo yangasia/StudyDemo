@@ -1,10 +1,21 @@
 const path = require('path');
 module.exports = {
-    entry:'./src/index.js',
+    // entry:'./src/index.js',
+    entry:{
+        app:'./src/index.js',
+        print:'./src/print.js',
+    },
+plugins:[
+    new HtmlWebpackPlugin({
+        title: 'Output Management'
+    })
+],
     output:{
-        filename:'bundle.js',
+        // filename:'bundle.js',
+        filename:'[name].bundle.js',
         path:path.resolve(__dirname,'dist')
     },
+    //文件打包规则
     // module:{
     //     rules:[
     //         {
