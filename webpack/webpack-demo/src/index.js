@@ -6,6 +6,12 @@ import { from } from '_array-flatten@2.1.2@array-flatten';
 // import y128 from './y128.png';
 // import Data from './data.xml';
 
+if(process.env.NODE_EVN !== 'production'){
+    console.log('-----------------------');
+    console.log('development mode');
+    console.log('-----------------------');
+}
+
 function component(){
     var element = document.createElement('div');
     var btn = document.createElement('button');

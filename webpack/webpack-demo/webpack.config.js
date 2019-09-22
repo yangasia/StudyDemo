@@ -20,13 +20,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management'
         }),
-        new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin(),//按import加载模块，这样入口就变成一个了
         new webpack.HotModuleReplacementPlugin()
     ],
     output:{
         // filename:'bundle.js',
         filename:'[name].bundle.js',
-        path:path.resolve(__dirname,'dist')
+        path:path.resolve(__dirname,'dist'),
+        publicPath: '/'//webpack-dev-middleware指明运行路径
     },
     mode:'production',//压缩打包js
     //文件打包规则

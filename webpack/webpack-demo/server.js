@@ -7,7 +7,7 @@ const config = require('./webpack.config');
 const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler,{
-    publicPath:config.output.publicPath
+    publicPath:config.output.publicPath//创建虚拟运行环境
 }))
 
 app.listen(3000, function(){
