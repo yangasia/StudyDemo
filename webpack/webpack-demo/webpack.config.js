@@ -8,12 +8,16 @@ module.exports = {
         app:'./src/index.js',
         print:'./src/print.js',
     },
-plugins:[
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-        title: 'Output Management'
-    })
-],
+    devtool:'inline-source-map',//js报错定位
+    devServer:{
+        contentBase:'./dist'
+    },
+    plugins:[
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Output Management'
+        })
+    ],
     output:{
         // filename:'bundle.js',
         filename:'[name].bundle.js',
