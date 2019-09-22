@@ -28,6 +28,7 @@ module.exports = {
         filename:'[name].bundle.js',
         path:path.resolve(__dirname,'dist')
     },
+    mode:'production',//压缩打包js
     //文件打包规则
     // module:{
     //     rules:[
