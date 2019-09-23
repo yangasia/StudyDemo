@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import { square,cube } from './math.js';
 import printMe from './print.js';
 import { from } from '_array-flatten@2.1.2@array-flatten';
@@ -7,6 +7,7 @@ import { from } from '_array-flatten@2.1.2@array-flatten';
 // import Data from './data.xml';
 
 if(process.env.NODE_EVN !== 'production'){
+    console.log(process.env.NODE_EVN);
     console.log('-----------------------');
     console.log('development mode');
     console.log('-----------------------');
@@ -18,11 +19,11 @@ function component(){
     // lodash由js引入
 
     // element.innerHTML = _.join(['Hello','webpack'],' ');
-    element.innerHTML = [
-        'hello webpack',
-        '5的立方等于'+cube(5),
-        '3的平方等于'+square(3),
-    ].join('\n\n');
+    // element.innerHTML = [
+    //     'hello webpack',
+    //     '5的立方等于'+cube(5),
+    //     '3的平方等于'+square(3),
+    // ].join('\n\n');
 
     btn.innerHTML = '点击我看console';
     btn.onclick = printMe;
