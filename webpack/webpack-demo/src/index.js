@@ -1,6 +1,6 @@
 import _ from 'lodash';
 // import { square,cube } from './math.js';
-// import printMe from './print.js';
+import printMe from './print.js';
 // import { from } from '_array-flatten@2.1.2@array-flatten';
 // import './style.css';
 // import y128 from './y128.png';
@@ -26,11 +26,11 @@ function component(){
     // ].join('\n\n');
 
     btn.innerHTML = '点击我看console';
-    // btn.onclick = printMe;
-    btn.onclick = e => import('./print').then(module => {
-        var print = module.default;
-        print();
-    });
+    btn.onclick = printMe;
+    // btn.onclick = e => import('./print').then(module => {
+    //     var print = module.default;
+    //     print();
+    // });
     element.appendChild(btn);
     // element.classList.add('hello');
     //加图片
