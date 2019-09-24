@@ -1,0 +1,19 @@
+{
+  "name": "yyztest-library",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "dist/webpack-numbers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "yangyazhouweb@foxmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "lodash": "^4.17.15",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
