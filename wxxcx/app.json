@@ -8,11 +8,14 @@
     "navigationBarBackgroundColor": "#0066ff",
     "navigationBarTitleText": "学习用小程序",
     "navigationBarTextStyle": "white",
-    "navigationStyle":"default",
-    "backgroundColor":"#000000"
+    "navigationStyle": "default",
+    "backgroundColor": "#000000",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
-    "list":[
+    "color": "#333333",
+    "custom": false,
+    "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页"

@@ -1,0 +1,6 @@
+function clickme(event, ownerInstance){
+    console.log('wxs');
+}
+module.exports = {
+    clickme:clickme
+}

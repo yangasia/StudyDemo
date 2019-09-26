@@ -1,3 +1,6 @@
 /webpack/webpack-demo/node_modules/*
 /webpack/webpack-library/node_modules/*
 /webpack/webpack-demo/dist/*
+/wepy/wepy-demo1/node_modules/*
+/wepy/wepy-demo1/dist/*
+/wxxcx/node_modules/*
