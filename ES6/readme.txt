@@ -1,1 +1,0 @@
-本目录所有代码来自http://es6.ruanyifeng.com阮一峰的ES6
