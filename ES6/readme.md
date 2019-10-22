@@ -1,4 +1,4 @@
-# ECMAScript 6
+# ECMAScript 6 入门
 作者: [阮一峰](www.ruanyifeng.com)  
 
 [教程地址](es6.ruanyifeng.com)  
