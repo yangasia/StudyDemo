@@ -27,6 +27,10 @@ obj.count;//get
 delete obj.count;//deleteProperty
 console.log(Object.keys(obj))//ownKeys
 
+global.double = n => n * 2;
+global.pow    = n => n * n;
+global.reverseInt = n => n.toString().split("").reverse().join("") | 0;
+
 //链式调用
 var pipe = (function () {
   return function (value) {
@@ -47,11 +51,13 @@ var pipe = (function () {
   }
 }());
 
-var double = n => n * 2;
-var pow    = n => n * n;
-var reverseInt = n => n.toString().split("").reverse().join("") | 0;
 
-pipe(3).double.pow.reverseInt.get;
+
+var p3 = pipe(3).double.pow.reverseInt.get;
+// var double = n => n * 2;
+console.log(p3);
+
+
 
 
 
