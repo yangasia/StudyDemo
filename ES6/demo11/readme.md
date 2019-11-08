@@ -66,4 +66,5 @@ console.log(Object.keys(obj))//ownKeys
 + object 目标对象的上下文对象（this）
 + args 目标对象属性的参数数组
 + 注意拦截操作优先级低于目标对象本身的属性描述
++ 拦截操作需要注意this的变化
 ***
