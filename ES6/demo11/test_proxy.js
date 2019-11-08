@@ -25,7 +25,7 @@ obj.count = 1;//set
 obj.count;//get
 'count' in obj;//has
 delete obj.count;//deleteProperty
-console.log(Object.keys(obj))//ownKeys
+// console.log(Object.keys(obj))//ownKeys
 
 global.double = n => n * 2;
 global.pow    = n => n * n;
@@ -55,9 +55,10 @@ var pipe = (function () {
 
 var p3 = pipe(3).double.pow.reverseInt.get;
 // var double = n => n * 2;
-console.log(p3);
+// console.log(p3);
 
-
-
-
-
+const handle = {
+  set(obj, prop, value, receiver){
+     obj[prop] = receiver; 
+  }
+}
