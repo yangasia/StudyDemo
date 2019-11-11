@@ -29,6 +29,7 @@ console.log(hw.next());
 *   { value: undefined, done: true }
 */
 //每一次next()调用都会被记住。再次调用从上次next的地方开始
-//value表示状态值，done表示遍历是否结束
+//
+//value表示状态值就是yield或者return后面的值，如果没有值就是undefined，done表示遍历是否结束
 ```
 ***
