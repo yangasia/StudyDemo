@@ -187,10 +187,10 @@ function* foow() {
   
   var it = barw();
   
-  console.log(it.next())
-  console.log(it.next())
-  console.log(it.next())
-  console.log(it.next())
+  // console.log(it.next())
+  // console.log(it.next())
+  // console.log(it.next())
+  // console.log(it.next())
   // {value: 1, done: false}
 //   it.next()
 //   // {value: 2, done: false}
@@ -200,3 +200,92 @@ function* foow() {
 //   // "v: foo"
 //   // {value: 4, done: false}
 //   it.next()
+var step1 = function (func,value1) {
+  return func(value1);
+};
+var step2 = function(value1,func,value2){
+  return value1+func(value2);
+};
+var step3 = function(value2,func,value3){
+  return value2+func(value3);
+};
+var step4 = function(value3,func,value4){
+    return value3+func(value4);
+    // return func(value4)+value3;
+};
+var step5 = function(value){
+    return value+1;
+}
+// console.log(step1(function(value){
+//   return (step5(value));
+// },4))
+// var reult = step1(function(value1){
+//   return (step2(value1,function(value2){
+//     return (step3(value2,function(value3){
+//       return (step4(value3,function(value4){
+//         return (step5(value4));
+//                   },4));
+//                 },3));
+//               },2));
+//             },1);
+// var reult = Promise.resolve(step1)
+// console.log('reult:'+reult);
+
+// 定义一个主体对象
+class Subject {
+  constructor() {
+    this.Observers = [];
+  }
+  add(observer) { //添加
+    this.Observers.push(observer)
+  }
+  remove(observer) {//移除
+    this.Observers.filter(item => item === observer);
+  }
+  notify() {
+    this.Observers.forEach(item => {
+      item.update();
+    })
+  }
+}
+//定义观察着对象
+class Observer {
+  constructor(name) {
+    this.name = name;
+  }
+  update() {
+    console.log(`my name is:${this.name}`);
+  }
+}
+ 
+//测试
+// let sub = new Subject();
+// let obs1 = new Observer('leaf111');
+// let obs2 = new Observer('leaf222');
+// sub.add(obs1);
+// sub.add(obs2);
+// sub.notify();
+
+// function study(callback,params){
+//   callback(params);
+//   }
+  
+//   study(function(who){
+//   console.log(who+"学习英语");
+//   },'陈康');
+
+Array.prototype.myfor = function(callback,thisArg){
+  console.log(this);
+  var len = this.length;
+  thisArg = this;
+  for(var i = 0; i < len; i++){
+   // callback(this[i], i, this);
+   callback.call(thisArg,this[i], i, this);
+  }
+}
+ var myarr = [1,2,3,4,5];
+ var myarr2 = [5,4,3,2,1];
+ myarr.myfor(function(val,index,a){
+    console.log(this);
+    console.log(val);
+ },myarr2);

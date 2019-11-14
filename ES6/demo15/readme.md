@@ -181,3 +181,54 @@ let obj = {
 };
 ```
 #### 9. Generator函数的this
++ Generator函数中，并不是指向实列，而是函数本身，函数返回的也不是this对象
+```javascript
+function* g() {
+  this.a = 11;
+}
+g.prototype.hello = function () {
+  return 'hi!';
+};
+let obj = g();
+obj.hello() // 'hi!'
+obj.next();
+obj.a // undefined 拿不到a 因为不在obj的原型链上
+```
+#### 10.Generator函数的含义
+```javascript
+//状态控制
+var ticking = true;
+var clock = function() {
+  if (ticking)
+    console.log('Tick!');
+  else
+    console.log('Tock!');
+  ticking = !ticking;
+}
+//这种方式状态容易被破坏
+
+var clock = function* () {
+  while (true) {
+    console.log('Tick!');
+    yield;
+    console.log('Tock!');
+    yield;
+  }
+};
+//更简洁安全
+
+//实现协程，通过Generator函数持续不断交换代码执行权，
+//Generator 暂停后 它的上下文退出执行堆栈，但是不会丢失
+```
+#### 11. 应用
++ 异步操作的同步化表达，
++ 控制流管理
++ 部署 Iterator 接口
++ 作为数据结构
+***
+#  Generator函数异步应用
+ES6以前有如下4种异步编程方法
++ 回调函数
++ 事件监听
++ 发布/订阅
++ Promise
