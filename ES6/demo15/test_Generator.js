@@ -285,7 +285,41 @@ Array.prototype.myfor = function(callback,thisArg){
 }
  var myarr = [1,2,3,4,5];
  var myarr2 = [5,4,3,2,1];
- myarr.myfor(function(val,index,a){
-    console.log(this);
-    console.log(val);
- },myarr2);
+//  myarr.myfor(function(val,index,a){
+//     console.log(this);
+//     console.log(val);
+//  },myarr2);
+
+var http = require('http');
+http.get('http://test.hejundata.com/cqcxcyct/',function(res){
+  console.log(res);
+});
+// function* gethtml(){
+//   var url='http://test.hejundata.com/cqcxcyct/';
+//   var result = yield http.get(url);
+//   console.log(result);
+// }
+// var get = gethtml();
+// var result = get.next();
+// get.next(result);
+
+//Thunk函数
+// ES5版本
+var Thunk = function(fn){
+  return function (){
+    var args = Array.prototype.slice.call(arguments);
+    return function (callback){
+      args.push(callback);
+      return fn.apply(this, args);
+    }
+  };
+};
+
+// ES6版本
+const Thunk = function(fn) {
+  return function (...args) {
+    return function (callback) {
+      return fn.call(this, ...args, callback);
+    }
+  };
+};

@@ -232,3 +232,33 @@ ES6以前有如下4种异步编程方法
 + 事件监听
 + 发布/订阅
 + Promise
+
+#### Thunkify 模块
+把异步多参数函数转化为单一参数
+$ npm install thunkify
+```javascript
+var thunkify = require('thunkify');
+var fs = require('fs');
+
+var read = thunkify(fs.readFile);
+read('package.json')(function(err, str){
+  // ...
+});
+```
+#### 异步任务的流程管理
+```javascript
+function* gen() {
+  // ...
+}
+
+var g = gen();
+var res = g.next();
+
+while(!res.done){//对异步操作不可控
+  console.log(res.value);
+  res = g.next();
+}
+```
+CO 模块让异步任务类似与同步任务那样去执行
+1. 回调函数。将异步操作包装成 Thunk 函数，在回调函数里面交回执行权。
+2. Promise 对象。将异步操作包装成 Promise 对象，用then方法交回执行权。
