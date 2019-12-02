@@ -161,6 +161,42 @@ let a = new A()
 let b = new B();
 console.log(b.__proto__.__proto__ === a.__proto__)//ture
 ```
+##### class原型图如下：
 ![class 原型图](https://raw.githubusercontent.com/yangasia/StudyDemo/master/ES6/demo17/class1.png)
 
+#### 继承原生对象
++ ES5 中因为子类无法获得原生构造函数内部属性，导致不能继承，ES6中能完美继承
++ ES6 继承Object有一个行为差异，子类无法通过super方法向父类传参
 
+#### Mixin 模式的实现
++ Mixin 指对各对象合成一个新对象，新对象具有各个组成成员的接口
+```javascript
+function mix(...mixins) {
+  class Mix {
+    constructor() {
+      for (let mixin of mixins) {
+        copyProperties(this, new mixin()); // 拷贝实例属性
+      }
+    }
+  }
+
+  for (let mixin of mixins) {
+    copyProperties(Mix, mixin); // 拷贝静态属性
+    copyProperties(Mix.prototype, mixin.prototype); // 拷贝原型属性
+  }
+
+  return Mix;
+}
+
+function copyProperties(target, source) {
+  for (let key of Reflect.ownKeys(source)) {
+    if ( key !== 'constructor'
+      && key !== 'prototype'
+      && key !== 'name'
+    ) {
+      let desc = Object.getOwnPropertyDescriptor(source, key);
+      Object.defineProperty(target, key, desc);
+    }
+  }
+}
+```

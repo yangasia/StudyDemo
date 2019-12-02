@@ -107,7 +107,28 @@ let a = new A()
 let b = new B();
 // Gprint(A.prototype);
 // Gprint(B.prototype);
-Gprint(b.prototype);
+// Gprint(b.prototype);
 
 // console.log(b.__proto__.__proto__ === a.__proto__)//ture
 // console.log(b.__proto__.__proto__ === A.prototype)
+
+class myarr extends Array{
+    constructor(...arr){
+        super(...arr);
+        this.history = [[]];
+    }
+    commit(){
+        this.history.push(this.slice());
+    }
+    revert(){
+        this.splice(0, this.length, ...this.history[this.history.length - 1]);
+    }
+    push(v){
+        super.push(v);
+        this.commit()
+    }
+}
+let arr = new myarr();
+arr.push(1);
+Gprint(arr);
+Gprint(arr.history);
