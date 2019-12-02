@@ -161,6 +161,6 @@ let a = new A()
 let b = new B();
 console.log(b.__proto__.__proto__ === a.__proto__)//ture
 ```
-![class 原型图](https://github.com/yangasia/StudyDemo/blob/master/ES6/demo17/class.png)
+![class 原型图](https://raw.githubusercontent.com/yangasia/StudyDemo/master/ES6/demo17/class1.png)
 
 
