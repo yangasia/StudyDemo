@@ -56,56 +56,58 @@ class Bar extends Foo {
 // Bar.classMethod() // "hello, too"
 // Gprint('test:','saaas')
 
-class test{
-    _count = 0;
-    constructor(){
-        Gprint(new.target);
-        this.count = 0;
-    }
-    increment(){
-        this.count++;
-        this._count++;
-    }
-}
-// let T = new test();
-// T.increment();
-// Gprint(test)
+// class test{
+//     _count = 0;
+//     constructor(){
+//         Gprint(new.target);
+//         this.count = 0;
+//     }
+//     increment(){
+//         this.count++;
+//         this._count++;
+//     }
+// }
+// // let T = new test();
+// // T.increment();
+// // Gprint(test)
 
-class A {
-    _p1 = 3;
-    constructor(){
-        this._p = 1;
-    }
-    p(){
-        return 2;
-    }
-    static myAfun() {
-        return 4;
-    }
-}
-class B extends A{
-    constructor(){
-        super();
-        Gprint(this._p1);
-        Gprint(super._p1);
-        Gprint(super.p());
-    }
-    m(){
-        Gprint()
-    }
-    static myVfun(){
-        Gprint(super.myAfun());
-    }
-}
+// class A {
+//     _p1 = 3;
+//     constructor(){
+//         this._p = 1;
+//     }
+//     p(){
+//         return 2;
+//     }
+//     static myAfun() {
+//         return 4;
+//     }
+// }
+// class B extends A{
+//     constructor(){
+//         super();
+//         Gprint(this._p1);
+//         Gprint(super._p1);
+//         Gprint(super.p());
+//     }
+//     m(){
+//         Gprint()
+//     }
+//     static myVfun(){
+//         Gprint(super.myAfun());
+//     }
+// }
 // let b = new B();
 // Gprint(B.__proto__);
-// class A {
-// }
-// class B extends A {
-// }
-// console.log(B.__proto__ === A)
-// console.log(B.prototype.__proto__ === A.prototype);
+class A {
+}
+class B extends A {
+}
 let a = new A()
 let b = new B();
-console.log(b.__proto__.__proto__ === a.__proto__)//ture
-console.log(b.__proto__.__proto__ === A.prototype)
+// Gprint(A.prototype);
+// Gprint(B.prototype);
+Gprint(b.prototype);
+
+// console.log(b.__proto__.__proto__ === a.__proto__)//ture
+// console.log(b.__proto__.__proto__ === A.prototype)
