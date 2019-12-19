@@ -113,6 +113,10 @@ class Game extends React.Component {
             xIsNext: !this.state.xIsNext,
         });
     }
+    handleClickme=(i)=>{
+        console.log(this.state.xIsNext);
+        this.handleClick(i)
+    }
 
     jumpto(step){
         this.setState({
@@ -148,7 +152,8 @@ class Game extends React.Component {
                 <div className="game-board">
                     <Board
                         squares={current.squares}
-                        onClick={(i) => this.handleClick(i)}
+                        // onClick={(i) => this.handleClick(i)}
+                        onClick={this.handleClickme}
                     />
                 </div>
                 <div className="game-info">
